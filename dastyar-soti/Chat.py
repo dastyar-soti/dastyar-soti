@@ -14,6 +14,10 @@ class Chat:
     #verb , obj , subj , etc
     verb = ""
     obj = ""
+    #list of Similarity Rate : for patterns and list of arrangment
+    similarityRatePatternRate = []
+    #TODO weigh for machine learning
+    weighRatePattern = [[1] , [1] , [1]]
     #patterns of sentence like I WANT TO OPEN CHROME
     patterns = [ ["pronoun" , "verb" , "noun"] , ["verb" , "noun"] , ["pronoun" , "verb" , "verb" , "noun"]]
 
@@ -61,7 +65,13 @@ class Chat:
         return False
     def similarityRatePattern(self):
         for i in patterns: #i represent each pattern like ["pronoun" , "verb"]
-            for j in i: #j represent each A like "pronoun" 
+            rate = 0 #rate for each pattern
+            for j in len(i): #j represent each A like "pronoun" 
+                if(i[j] == listOfArrangementInA[j]):
+                    rate += 10
+            #add rate variable to end of similarity array for calculation at end
+            #weigh is added for more accurate results
+            similarityRatePattern.append(rate * weigh)
         
 
 

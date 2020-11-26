@@ -14,6 +14,8 @@ class Chat:
     #verb , obj , subj , etc
     verb = ""
     obj = ""
+    #patterns of sentence like I WANT TO OPEN CHROME
+    patterns = [ ["pronoun" , "verb" , "noun"] , ["verb" , "noun"] , ["pronoun" , "verb" , "verb" , "noun"]]
 
     #methods
     def __init__(self , inp)
@@ -32,9 +34,9 @@ class Chat:
             elif(isNoun(i)):
                 listOfArrangementInA.append("noun")
                 listOfArrangement.append(i)
-            elif(isIgnoreType(i)):
-                #nothing in particullar , we just ignore this word
-                continue
+            elif(isPronoun(i)):
+                listOfArrangementInA.append("pronoun")
+                listOfArrangement.append(i)
 
             
     #used in detect , detect if the WORD is verb or is not
@@ -52,9 +54,14 @@ class Chat:
     def isNoun(self , word):
         if (Dictionary.getA(word) == "noun"):
             return True
-        retrun False
-    def isIgnoreType(self , word):
-        continue
+        return False
+    def isPronoun(self , word):
+        if (Dictionary.getA(word) == "pronoun"):
+            return True
+        return False
+    def similarityRatePattern(self):
+        for i in patterns: #i represent each pattern like ["pronoun" , "verb"]
+            for j in i: #j represent each A like "pronoun" 
         
 
 

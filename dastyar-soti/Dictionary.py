@@ -20,6 +20,24 @@ dic = {
     },
     "a" : {
         "a" : "ignore"
+    },
+    "an" : {
+        "a" : "ignore"
+    },
+    "i" : {
+        "a" : "pronoun"
+    },
+    "you" : {
+        "a" : "pronoun"
+    },
+    "he" : {
+        "a" : "pronoun"
+    },
+    "she" : {
+        "a" : "pronoun"
+    },
+    "she" : {
+        "a" : "pronoun"
     }
 }
 def getA(word):

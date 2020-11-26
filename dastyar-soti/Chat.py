@@ -24,6 +24,7 @@ class Chat:
     def detect(self):
         #search every word in sentence
         for i in self.splitted :
+            i = i.lower()
             #if the word (i) is a verb or noun or IGNORE-TYPE
             if(isVerb(i)):
                 listOfArrangementInA.append("verb")
@@ -42,10 +43,16 @@ class Chat:
         if (Dictionary.getA(word) == "verb"):
             return True
         #If the word have ING or ED at end
-        if()
+        if(word.endswith("ed") or word.endswith("ing")):
+            #if the word is not in dictionary , go and add it #LEARNING TODO
+            return True
+        #ANOTHER WAY ? TODO
+        return False
     #used in detect , detect if the WORD is verb or is not
     def isNoun(self , word):
-        continue
+        if (Dictionary.getA(word) == "noun"):
+            return True
+        retrun False
     def isIgnoreType(self , word):
         continue
         
